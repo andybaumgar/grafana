@@ -1,5 +1,6 @@
 import { initialAdHocVariableModelState } from '../../adhoc/reducer';
 import { initialConstantVariableModelState } from '../../constant/reducer';
+import { initialRollupVariableModelState } from '../../rollup/reducer';
 import { initialCustomVariableModelState } from '../../custom/reducer';
 import { initialDataSourceVariableModelState } from '../../datasource/reducer';
 import { initialIntervalVariableModelState } from '../../interval/reducer';
@@ -21,3 +22,4 @@ export const queryBuilder = () => new QueryVariableBuilder(initialQueryVariableM
 export const textboxBuilder = () => new TextBoxVariableBuilder(initialTextBoxVariableModelState);
 export const customBuilder = () => new MultiVariableBuilder(initialCustomVariableModelState);
 export const constantBuilder = () => new OptionsVariableBuilder(initialConstantVariableModelState);
+export const rollupBuilder = () => new OptionsVariableBuilder(initialConstantVariableModelState);

@@ -16,6 +16,7 @@ import {
 import {
   createAdhocVariable,
   createConstantVariable,
+  createRollupVariable,
   createCustomVariable,
   createDashboardVariable,
   createDatasourceVariable,
@@ -165,6 +166,7 @@ describe('type guards', () => {
     query:      { variable: createQueryVariable(),      isMulti: true,  hasOptions: true,  hasCurrent: true },
     adhoc:      { variable: createAdhocVariable(),      isMulti: false, hasOptions: false, hasCurrent: false },
     constant:   { variable: createConstantVariable(),   isMulti: false, hasOptions: true,  hasCurrent: true },
+    rollup:   { variable: createRollupVariable(),   isMulti: false, hasOptions: true,  hasCurrent: true },
     datasource: { variable: createDatasourceVariable(), isMulti: true,  hasOptions: true,  hasCurrent: true },
     interval:   { variable: createIntervalVariable(),   isMulti: false, hasOptions: true,  hasCurrent: true },
     textbox:    { variable: createTextBoxVariable(),    isMulti: false, hasOptions: true,  hasCurrent: true },

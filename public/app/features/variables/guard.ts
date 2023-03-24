@@ -18,6 +18,7 @@ import { LEGACY_VARIABLE_QUERY_EDITOR_NAME } from './editor/LegacyVariableQueryE
 import {
   AdHocVariableModel,
   ConstantVariableModel,
+  RollupVariableModel,
   QueryVariableModel,
   VariableQueryEditorType,
   VariableQueryEditorProps,
@@ -38,6 +39,11 @@ export const isAdHoc = (model: VariableModel): model is AdHocVariableModel => {
 /** @deprecated use a if (model.type === "constant") type narrowing check instead */
 export const isConstant = (model: VariableModel): model is ConstantVariableModel => {
   return model.type === 'constant';
+};
+
+/** @deprecated use a if (model.type === "rollup") type narrowing check instead */
+export const isRollup = (model: VariableModel): model is RollupVariableModel => {
+  return model.type === 'rollup';
 };
 
 export const isMulti = (model: VariableModel): model is VariableWithMultiSupport => {

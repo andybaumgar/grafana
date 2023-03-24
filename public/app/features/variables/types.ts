@@ -35,6 +35,8 @@ export {
   /** @deprecated Import from @grafana/data instead */
   ConstantVariableModel,
   /** @deprecated Import from @grafana/data instead */
+  RollupVariableModel,
+  /** @deprecated Import from @grafana/data instead */
   VariableWithMultiSupport,
   /** @deprecated Import from @grafana/data instead */
   VariableWithOptions,
