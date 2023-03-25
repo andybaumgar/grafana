@@ -14,6 +14,7 @@ export type TypedVariableModel =
   | QueryVariableModel
   | AdHocVariableModel
   | ConstantVariableModel
+  | RollupVariableModel
   | DataSourceVariableModel
   | IntervalVariableModel
   | TextBoxVariableModel
@@ -104,6 +105,10 @@ export interface TextBoxVariableModel extends VariableWithOptions {
 
 export interface ConstantVariableModel extends VariableWithOptions {
   type: 'constant';
+}
+
+export interface RollupVariableModel extends VariableWithOptions {
+  type: 'rollup';
 }
 
 export interface VariableWithMultiSupport extends VariableWithOptions {

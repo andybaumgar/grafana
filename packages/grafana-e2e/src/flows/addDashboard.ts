@@ -27,6 +27,7 @@ interface AddVariableDefault {
 
 interface AddVariableOptional {
   constantValue?: string;
+  rollupValue?: string;
   dataSource?: string;
   label?: string;
   query?: string;
@@ -209,6 +210,7 @@ export const VARIABLE_HIDE_VARIABLE = 'Variable';
 
 export const VARIABLE_TYPE_AD_HOC_FILTERS = 'Ad hoc filters';
 export const VARIABLE_TYPE_CONSTANT = 'Constant';
+export const VARIABLE_TYPE_ROLLUP = 'Rollup';
 export const VARIABLE_TYPE_DATASOURCE = 'Datasource';
 export const VARIABLE_TYPE_QUERY = 'Query';
 
@@ -229,7 +231,7 @@ const addVariable = (config: PartialAddVariableConfig, isFirst: boolean): AddVar
     e2e.pages.Dashboard.Settings.Variables.List.newButton().click();
   }
 
-  const { constantValue, dataSource, label, name, query, regex, type, variableQueryForm } = fullConfig;
+  const { constantValue, rollupValue, dataSource, label, name, query, regex, type, variableQueryForm } = fullConfig;
 
   // This field is key to many reactive changes
   if (type !== VARIABLE_TYPE_QUERY) {
@@ -262,6 +264,10 @@ const addVariable = (config: PartialAddVariableConfig, isFirst: boolean): AddVar
     e2e.pages.Dashboard.Settings.Variables.Edit.ConstantVariable.constantOptionsQueryInputV2().type(constantValue);
   }
 
+  if (rollupValue && type === VARIABLE_TYPE_ROLLUP) {
+    e2e.pages.Dashboard.Settings.Variables.Edit.RollupVariable.rollupOptionsQueryInputV2().type(rollupValue);
+  }
+
   if (type === VARIABLE_TYPE_QUERY) {
     if (query) {
       e2e.pages.Dashboard.Settings.Variables.Edit.QueryVariable.queryOptionsQueryInput().type(query);
@@ -284,6 +290,14 @@ const addVariable = (config: PartialAddVariableConfig, isFirst: boolean): AddVar
     .within((previewOfValues) => {
       if (type === VARIABLE_TYPE_CONSTANT) {
         expect(previewOfValues.text()).equals(constantValue);
+      }
+    });
+
+  e2e.pages.Dashboard.Settings.Variables.Edit.General.previewOfValuesOption()
+    .should('exist')
+    .within((previewOfValues) => {
+      if (type === VARIABLE_TYPE_ROLLUP) {
+        expect(previewOfValues.text()).equals(rollupValue);
       }
     });
 

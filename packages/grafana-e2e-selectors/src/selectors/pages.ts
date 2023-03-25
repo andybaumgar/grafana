@@ -147,6 +147,10 @@ export const Pages = {
             constantOptionsQueryInput: 'Variable editor Form Constant Query field',
             constantOptionsQueryInputV2: 'data-testid Variable editor Form Constant Query field',
           },
+          RollupVariable: {
+            rollupOptionsQueryInput: 'Variable editor Form Rollup Query field',
+            rollupOptionsQueryInputV2: 'data-testid Variable editor Form Rollup Query field',
+          },
           DatasourceVariable: {
             datasourceSelect: 'data-testid datasource variable datasource type',
           },

@@ -2,6 +2,7 @@ import {
   AdHocVariableModel,
   BaseVariableModel,
   ConstantVariableModel,
+  RollupVariableModel,
   CustomVariableModel,
   DashboardVariableModel,
   DataSourceVariableModel,
@@ -81,6 +82,17 @@ export function createAdhocVariable(input?: Partial<AdHocVariableModel>): AdHocV
 export function createConstantVariable(input: Partial<ConstantVariableModel> = {}): ConstantVariableModel {
   return {
     ...createBaseVariableModel('constant'),
+    query: '',
+    current: createVariableOption('database'),
+    options: [],
+    hide: VariableHide.hideVariable,
+    ...input,
+  };
+}
+
+export function createRollupVariable(input: Partial<RollupVariableModel> = {}): RollupVariableModel {
+  return {
+    ...createBaseVariableModel('rollup'),
     query: '',
     current: createVariableOption('database'),
     options: [],

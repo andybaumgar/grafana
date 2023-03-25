@@ -87,6 +87,7 @@ import { getVariablesUrlParams } from './features/variables/getAllVariableValues
 import { createIntervalVariableAdapter } from './features/variables/interval/adapter';
 import { setVariableQueryRunner, VariableQueryRunner } from './features/variables/query/VariableQueryRunner';
 import { createQueryVariableAdapter } from './features/variables/query/adapter';
+import { createRollupVariableAdapter } from './features/variables/rollup/adapter';
 import { createSystemVariableAdapter } from './features/variables/system/adapter';
 import { createTextBoxVariableAdapter } from './features/variables/textbox/adapter';
 import { configureStore } from './store/configureStore';
@@ -145,6 +146,7 @@ export class GrafanaApp {
         createCustomVariableAdapter(),
         createTextBoxVariableAdapter(),
         createConstantVariableAdapter(),
+        createRollupVariableAdapter(),
         createDataSourceVariableAdapter(),
         createIntervalVariableAdapter(),
         createAdHocVariableAdapter(),
